@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Audiowide|VT323" rel="stylesheet">
+	<style>
+	*{padding: 0px; margin: 0px; font-family: 'VT323', monospace; z-index: 1; text-align: center}
+		body{overflow: hidden; z-index: -1;}
+		h2{margin: 20px 0 0 0; font-size: 3em}
+		p{margin: 0 30px 0 30px;}
+		#back{background: linear-gradient(to bottom right, #33ccff -6%, #000066 76%); width: 100vw; height: 100vh; z-index: -1;}
+		#back_star{position: absolute; background: white; top: 40px; left: 40px; width: 5px; height: 10px; animation: star 1s infinite alternate; opacity: 0.5; z-index: 0;}
+		@keyframes star{
+			0%{transform: scale(0.8); opacity: 0.3}
+			100%{transform: scale(1.0); opacity: 0.5}
+
+		}
+		#sun{position: absolute; top: -300px; left: -350px; width: 65vw;}
+		#earth{position: absolute; top: 320px; left: 50%; transform: translateX(-50%); width: 25vw;}
+	
+		#cheeze{position: absolute; width: 37vw; bottom: -120px; right: -60px; transform: rotate(-10deg);}
+		#sun_click{position: absolute; top: -300px; left: -350px; width: 55vw; height: 36vw; z-index: 2; border-radius: 50%}
+		#sun_box{position: absolute; left: 60px; top: 200px; width:420px; height: 280px; z-index: 2}
+		#sun_line1{position: absolute; top: 0px; width: 10px; height: 0px; background: white;}
+		#sun_line2{position: absolute; top: 150px; height: 10px; width: 0px; background: white;}
+		#sun_ex{position: absolute; left: 130px; top: 120px; height: 220px; background: white; text-align: center; color: black; overflow: hidden; width: 0px;}
+		@keyframes sl1{
+			0%{height: 0px;}
+			100%{height: 150px;}
+		}
+		@keyframes sl1-2{
+			0%{height: 150px;}
+			100%{height: 0px;}
+		}
+		@keyframes sl2{
+			0%{width: 0px;}
+			100%{width: 130px;}
+		}
+		@keyframes sl2-2{
+			0%{width: 130px;}
+			100%{width: 0px;}
+		}
+		@keyframes se1{
+			from{width: 0px; border: outset 0px blue;}
+			to{width: 400px; border: outset 10px blue;}
+		}
+		@keyframes se1-2{
+			from{width: 400px; border: outset 10px blue;}
+			to{width: 00px; border: outset 0px blue;}
+		}
+		
+		#little{position: absolute; bottom: -50px; left: -40px; width: 33vw;}
+		#donut{position: absolute; left: 40px; bottom: 270px; width: 25vw;}
+		#wars1{position: absolute; right: 20px; top: 30px; width: 300px;}
+		#wars2{position: absolute; right: 60px; top: 70px; width: 360px; transform: rotate(-80deg);}
+		#pocky{position: absolute; right: -50px; top: 50px; width: 500px; transform: rotate(-25deg);}
+		#star_r{position: absolute; right: 570px; top: 20px; width: 180px; }
+		#star_r:hover{animation: star_r 2s infinite;}
+		@keyframes star_r{
+			0%{transform: rotate(0deg);}
+			100%{transform: rotate(360deg);}
+		}
+		#text_t{position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); width: 550px; height: 150px; color: white; background: blue; font-size: 3em; text-align: center; line-height: 150px; z-index: 5}
+		
+		#earth_click{position: absolute; left: 50%; transform: translateX(-50%); top: 280px; width: 28vw; height: 28vw; border-radius: 50%; z-index: 2}
+		#earth_box{position: absolute; top: 30px; left: 50%; transform: translateX(-50%); width: 400px; height: 300px;}
+		#earth_line1{position: absolute; bottom: 0px; width: 10px; left: 50%; transform: translateX(-50%); background: white;}
+		@keyframes el1{
+			from{height: 0px;}
+			to{height: 80px;}
+		}
+		@keyframes el1-2{
+			from{height: 80px;}
+			to{height: 0px;}
+		}
+		#earth_ex{position: absolute; left: 50%; transform: translateX(-50%); width: 320px; bottom: 80px;background: white; text-align: center; color: black; overflow: hidden; height: 0px;}
+		@keyframes ee1{
+			0%{height: 0px; border: outset 0px blue;}
+			100%{height: 200px; border: outset 10px blue;}
+		}
+		@keyframes ee1-2{
+			from{height: 200px; border: outset 10px blue;}
+			to{height: 0px; border: outset 0px blue;}
+		}
+		#donut_click{position: absolute; left: 60px; bottom: 270px; width: 23vw; height: 15vw; z-index: 2}
+		#dount_box{position: absolute; width: 400px; height: 400px; left: 250px; bottom: 500px;}
+		#donut_line1{position: absolute; bottom: 0px; left: 0px; width: 10px; height: 0px; background: white}
+		#donut_line2{position: absolute; bottom: 150px; left: 0px; width: 0px; height: 10px; background: white}
+		#donut_ex{position: absolute; bottom: 30px; left: 70px; width: 0px; height: 220px; background: white; overflow: hidden;}
+		@keyframes dl1{
+			from{height: 0px;}
+			to{height: 150px;}
+		}
+		@keyframes dl2{
+			from{width: 0px;}
+			to{width: 70px;}
+		}
+		@keyframes de1{
+			from{width: 0px; border: outset 0px blue;}
+			to{width: 430px; border: outset 10px blue;}
+		}
+		@keyframes dl1-2{
+			from{height: 150px;}
+			to{height: 0px;}
+		}
+		@keyframes dl2-2{
+			from{width: 70px;}
+			to{width: 0px;}
+		}
+		@keyframes de1-2{
+			from{width: 430px; border: outset 10px blue;}
+			to{width: 0px; border: outset 0px blue;}
+		}
+		#little_click{position: absolute; bottom: 0px; left: 0px; width: 300px; height: 180px;}
+		#little_box{position: absolute; bottom: 50px; left: 190px; width: 450px; height: 310px;}
+		#little_line1{position: absolute; bottom: 0px; left: 0px; width: 0px; height:10px; background: white}
+		#little_line2{position: absolute; bottom: 0px; left: 240px; width: 10px; height: 0px; background: white}
+		#little_ex{position: absolute; background: white; bottom: 100px; left: 80px; width: 340px; height: 0px; overflow: hidden}
+		@keyframes ll1{
+			from{width: 0px;}
+			to{width: 240px;}
+		}
+		@keyframes ll2{
+			from{height: 0px;}
+			to{height: 100px;}
+		}
+		@keyframes le1{
+			from{height: 0px; border: outset 0px blue;}
+			to{height: 160px; border: outset 10px blue;}
+		}
+		@keyframes ll1-2{
+			from{width: 240px;}
+			to{width: 0px;}
+		}
+		@keyframes ll2-2{
+			from{height: 100px;}
+			to{height: 0px;}
+		}
+		@keyframes le1-2{
+			from{height: 160px; border: outset 10px blue;}
+			to{height: 0px; border: outset 0px blue;}
+		}
+
+		#cheeze_box{position: absolute; right: 440px; bottom: 140px; width: 450px; height: 300px;}
+		#cheeze_line1{position: absolute; right: 0px; bottom: 0px; width: 0px; height: 10px; background: white}
+		#cheeze_line2{position: absolute; right: 150px; bottom: 0px; width: 10px; height: 0px; background: white}
+		#cheeze_ex{position: absolute; right: 100px; bottom: 120px; width: 350px; height: 0px; background: white; overflow: hidden}
+		#cheeze_click{position: absolute; right: 0px; bottom: 0px; width: 570px; height: 400px; }
+		@keyframes cl1{
+			from{width: 0px;}
+			to{width: 150px;}
+		}
+		@keyframes cl2{
+			from{height: 0px;}
+			to{height: 120px;}
+		}
+		@keyframes ce1{
+			from{height: 0px; border: outset 0px blue;}
+			to{height: 200px; border: outset 10px blue;}
+		}
+		@keyframes cl1-2{
+			from{width: 150px;}
+			to{width: 0px;}
+		}
+		@keyframes cl2-2{
+			from{height: 120px;}
+			to{height: 0px;}
+		}
+		@keyframes ce1-2{
+			from{height: 200px; border: outset 10px blue;}
+			to{height: 0px; border: outset 0px blue;}
+		}
+		#darth_box{position: absolute; top: 180px; right: 340px; width: 250px; height: 250px;}
+		#darth_line1{position: absolute; right: 0px; top: 0px; width: 0px; height: 10px; background: white}
+		#darth_ex{position: absolute; right: 100px; top: -50px; width: 0px; height: 150px; background: white; overflow: hidden}
+		#darth_click{position: absolute; top: 70px; right: 130px; width: 240px; height: 240px;}
+		@keyframes dal1{
+			from{width: 0px;}
+			to{width: 100px;}
+		}
+		@keyframes dae1{
+			from{width: 0px; border: outset 0px blue;}
+			to{width: 260px; border: outset 10px blue;}
+		}
+		@keyframes dal1-2{
+			from{width: 100px;}
+			to{width: 0px;}
+		}
+		@keyframes dae1-2{
+			from{width: 260px; border: outset 10px blue;}
+			to{width: 0px; border: outset 0px blue;}
+		}
+		#pocky_box{position: absolute; top: 290px; right: 150px; width: 250px; height: 250px;}
+		#pocky_line1{position: absolute; right: 0px; top: 0px; width: 0px; height: 10px; background: white}
+		#pocky_ex{position: absolute; right: 100px; top: -50px; width: 0px; height: 170px; background: white; overflow: hidden}
+		#pocky_click{position: absolute; top: 190px; right: 0px; width: 170px; height: 180px;}
+		#video_box{position: absolute; top: 0px; width: 100vw; height: 0px; z-index: 0;}
+
+	</style>
+	<title>Pixel</title>
+</head>
+<body>
+	<div id="back">
+		<div id="back_star"></div>
+	<script>
+		for(var i=0; i< 80; i++){
+			var star = document.getElementById("back_star");
+			var n_star = star.cloneNode(true);
+			n_star.style.left = Math.random() * 100 + "vw";
+			n_star.style.top = Math.random() * 100 + "vh";
+			document.body.appendChild(n_star);
+		}
+	</script>
+
+	<img src="./img/sun.gif" id="sun" >
+	
+	<div id="sun_box">
+		<div id="sun_line1"></div>
+		<div id="sun_line2"></div>
+		<div id="sun_ex">
+			<h2>SUN</h2><br>
+			<p>The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma,[14][15] with internal convective motion that generates a magnetic field via a dynamo process.[16] It is by far the most important source of energy for life on Earth.</p>
+		</div>
+	</div>
+	<div id="sun_click" onmouseover="s_mov()" onmouseout="s_mou()" onclick="s_c()"></div>
+	<img src=./img/wars.gif id="wars1">
+	<img src=./img/wars.gif id="wars2">
+	<img src="./img/earth_15s_shadow.gif" id="earth">
+	<div id="earth_box">
+		<div id="earth_line1"></div>
+		<div id="earth_ex">
+			<h2>EARTH</h2><br>
+			<p>Earth is the third planet from the Sun and the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, Earth formed over 4.5 billion years ago.</p>
+		</div>
+	</div>
+	<div id="earth_click" onmouseover="e_mov()" onmouseout="e_mou()" onclick="e_c()"></div>
+	<img src="./img/donut.gif" id="donut">
+	<img src="./img/prince.gif" id="little">
+	<img src="./img/pocky.gif" id="pocky">
+	<img src="./img/star.gif" id="star_r">
+	<img src="./img/cheeze.gif" id="cheeze">
+
+	<div id="dount_box">
+		<article id="donut_line1"></article>
+		<article id="donut_line2"></article>
+		<article id="donut_ex">
+			<h2>DONUT PLANET</h2><br>
+			<p>A doughnut (British English) or donut (American English) (both: /ˈdoʊnət/ or /ˈdoʊnʌt/; see etymology section) is a type of fried dough confection or dessert food. The doughnut is popular in many countries and prepared in various forms as a sweet snack that can be homemade or purchased in bakeries, supermarkets, food stalls, and franchised specialty vendors.</p>
+		</article>
+	</div>
+	<div id="donut_click" onmouseover="d_mov()" onmouseout="d_mou()" onclick="d_c()">
+	</div>
+	<div id="little_box">
+		<article id="little_line1"></article>
+		<article id="little_line2"></article>
+		<article id="little_ex">
+			<h2>UNKNOWN</h2><br>
+			<p>It has yet to be confirmed as a desert planet. It is not likely that people will live in barren desert areas.</p>
+		</article>
+	</div>
+	<div id="little_click" onmouseover="l_mov()" onmouseout="l_mou()" onclick="l_c()"></div>
+	<div id="cheeze_box">
+		<article id="cheeze_line1"></article>
+		<article id="cheeze_line2"></article>
+		<article id="cheeze_ex">
+			<h2>CHEEZE PLANET</h2><br>
+			<p>High quality cheese is a naturally produced planet. Originally, it was bigger, but as people visited more, the size of the planet decreased. Cheeze is great, awesome</p>
+		</article>
+	</div>
+	<div id="cheeze_click" onmouseover="c_mov()" onmouseout="c_mou()" onclick="c_c()"></div>
+
+
+	<div id="darth_box">
+		<article id="darth_line1"></article>
+		<article id="darth_ex">
+			<h2>DARTH VARDER</h2><br>
+			<p>As an invader in space, he like to eat "Pocky" recently.
+		</article>
+	</div>
+	<div id="pocky_box">
+		<article id="pocky_line1"></article>
+		<article id="pocky_ex">
+			<h2>POCKY</h2><br>
+			<p>This cookies are made at Earth. As chocolate-coated cookies, many astronauts like to eat this</p>
+		</article>
+	</div>
+	<div id="darth_click" onmouseover="da_mov()" onmouseout="da_mou()" onclick="da_c()"></div>
+	<div id="pocky_click" onmouseover="p_mov()" onmouseout="p_mou()" onclick="p_c()"></div>
+
+	<div id="video_box"></div>
+	<script>
+		var but = "off";
+		function s_c(){
+			if(but == "off"){
+			but = "on";
+			video_box.style.height ="100vh";
+			video_box.style.background = "url(./img/sun_light.gif)";
+			}else{
+			but = "off"
+			video_box.style.height ="0px";
+			}
+		}
+		function e_c(){
+			if(but == "off"){
+			but = "on";
+			video_box.style.height ="100vh";
+			video_box.style.background = "url(./img/ear.gif)";
+			}else{
+			but = "off"
+			video_box.style.height ="0px";
+			}
+		}
+		function d_c(){
+			if(but == "off"){
+			but = "on";
+			video_box.style.height ="100vh";
+			video_box.style.background = "url(./img/don.gif)";
+			}else{
+			but = "off"
+			video_box.style.height ="0px";
+			}
+		}
+		function da_c(){
+			if(but == "off"){
+			but = "on";
+			video_box.style.height ="100vh";
+			video_box.style.background = "url(./img/das.gif)";
+			}else{
+			but = "off"
+			video_box.style.height ="0px";
+			}
+		}
+		function p_c(){
+			if(but == "off"){
+			but = "on";
+			video_box.style.height ="100vh";
+			video_box.style.background = "url(./img/poc.gif)";
+			}else{
+			but = "off"
+			video_box.style.height ="0px";
+			}
+		}
+		function c_c(){
+			if(but == "off"){
+			but = "on";
+			video_box.style.height ="100vh";
+			video_box.style.background = "url(./img/che.gif)";
+			}else{
+			but = "off"
+			video_box.style.height ="0px";
+			}
+		}
+
+		function l_c(){
+			if(but == "off"){
+			but = "on";
+			video_box.style.height ="100vh";
+			video_box.style.background = "url(./img/lit.gif)";
+			}else{
+			but = "off"
+			video_box.style.height ="0px";
+			}
+		}
+
+		function star_mov(){
+			star.style.width = "300px";
+			star.style.animationPlayState = "running";
+		}
+		function star_mou(){
+			star.style.animationPlayState = "paused";
+		}
+		function p_mov(){
+			pocky_line1.style.animation = "dal1 0.1s forwards";
+			pocky_ex.style.animation = "dae1 0.1s forwards";
+			pocky_ex.style.animationDelay = "0.1s";
+			pocky_line1.style.width = "0px";
+		}
+		function p_mou(){
+			pocky_line1.style.animation = "dal1-2 0.1s forwards";
+			pocky_ex.style.animation = "dae1-2 0.1s forwards";
+			pocky_line1.style.animationDelay = "0.1s";
+			pocky_line1.style.width = "100px";
+		}
+		function da_mov(){
+			darth_line1.style.animation = "dal1 0.1s forwards";
+			darth_ex.style.animation = "dae1 0.1s forwards";
+			darth_ex.style.animationDelay = "0.1s";
+			darth_line1.style.width = "0px";
+		}
+		function da_mou(){
+			darth_line1.style.animation = "dal1-2 0.1s forwards";
+			darth_ex.style.animation = "dae1-2 0.1s forwards";
+			darth_line1.style.animationDelay = "0.1s";
+			darth_line1.style.width = "100px";
+		}
+		function c_mov(){
+			cheeze_line1.style.animation = "cl1 0.1s forwards";
+			cheeze_line2.style.animation = "cl2 0.1s forwards";
+			cheeze_ex.style.animation = "ce1 0.1s forwards";
+			cheeze_line2.style.animationDelay = "0.1s";
+			cheeze_ex.style.animationDelay = "0.2s";
+			cheeze_line2.style.height = "0px";
+			cheeze_line1.style.width = "0px";
+		}
+		function c_mou(){
+			cheeze_line1.style.animation = "cl1-2 0.1s forwards";
+			cheeze_line2.style.animation = "cl2-2 0.1s forwards";
+			cheeze_ex.style.animation = "ce1-2 0.1s forwards";
+			cheeze_line2.style.animationDelay = "0.1s";
+			cheeze_line1.style.animationDelay = "0.2s";
+			cheeze_line2.style.height = "120px";
+			cheeze_line1.style.width = "150px";
+		}
+
+		function l_mov(){
+			little_line1.style.animation = "ll1 0.1s forwards";
+			little_line2.style.animation = "ll2 0.1s forwards";
+			little_ex.style.animation = "le1 0.1s forwards";
+			little_line2.style.animationDelay = "0.1s";
+			little_ex.style.animationDelay = "0.2s";
+			little_line2.style.height = "0px";
+			little_line1.style.width = "0px";
+		}
+		function l_mou(){
+			little_line1.style.animation = "ll1-2 0.1s forwards";
+			little_line2.style.animation = "ll2-2 0.1s forwards";
+			little_ex.style.animation = "le1-2 0.1s forwards";
+			little_line2.style.animationDelay = "0.1s";
+			little_line1.style.animationDelay = "0.2s";
+			little_line2.style.height = "100px";
+			little_line1.style.width = "240px";
+		}
+
+		function d_mov(){
+			donut_line1.style.animation = "dl1 0.1s forwards";
+			donut_line2.style.animation = "dl2 0.1s forwards";
+			donut_ex.style.animation = "de1 0.1s forwards";
+			donut_line2.style.animationDelay = "0.1s";
+			donut_ex.style.animationDelay = "0.2s";
+			donut_line2.style.width = "0px";
+			donut_line1.style.height = "0px";
+		}
+		function d_mou(){
+			donut_line1.style.animation = "dl1-2 0.1s forwards";
+			donut_line2.style.animation = "dl2-2 0.1s forwards";
+			donut_ex.style.animation = "de1-2 0.1s forwards";
+			donut_line2.style.animationDelay = "0.1s";
+			donut_line1.style.animationDelay = "0.2s";
+			donut_line2.style.width = "70px";
+			donut_line1.style.height = "150px";
+		}
+
+		function s_mov(){
+			sun_line1.style.animation = "sl1 0.1s forwards";
+			sun_line2.style.animation = "sl2 0.1s forwards";
+			sun_ex.style.animation = "se1 0.1s forwards";
+			sun_line2.style.animationDelay = "0.1s";
+			sun_ex.style.animationDelay = "0.2s";
+			sun_line2.style.width = "0px";
+			sun_line1.style.height = "0px";
+		}
+		function s_mou(){
+			sun_line1.style.animation = "sl1-2 0.1s forwards";
+			sun_line2.style.animation = "sl2-2 0.1s forwards";
+			sun_ex.style.animation = "se1-2 0.1s forwards";
+			sun_line2.style.animationDelay = "0.1s";
+			sun_line1.style.animationDelay = "0.2s";
+			sun_line2.style.width = "130px";
+			sun_line1.style.height = "150px";
+		}
+
+		function e_mov(){
+			earth_line1.style.animation = "el1 0.2s forwards";
+			earth_ex.style.animation = "ee1 0.2s forwards";
+			earth_ex.style.animationDelay = "0.2s";
+
+		}
+		function e_mou(){
+			earth_line1.style.animation = "el1-2 0.2s forwards";
+			earth_ex.style.animation = "ee1-2 0.2s forwards";
+			earth_line1.style.animationDelay = "0.2s";
+			earth_line1.style.height = "80px";
+		}
+	</script>
+
+
+	<audio id="song">
+		<source src="video/1.mp3" type="audio/mpeg">
+	</audio>
+	<div id="text_t" onclick="but()">
+		<h1>PIXEL WORLD</h1>
+	</div>
+	<script>
+		var toggle = "off"
+		function but(){
+			if(toggle == "off"){
+				toggle = "on";
+			text_t.style.background = "red";
+			song.play();
+			}else{
+				toggle = "off";
+			text_t.style.background = "blue";
+			}
+		}
+
+	</script>
+
+	</div>
+</body>
+</html>
